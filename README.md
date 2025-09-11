@@ -1,1 +1,1 @@
-# postGrudate_study
+# postGraduate_study

@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from model import LeNet
 import torch.nn as nn
 
-def  train_val_data_process():
+def train_val_data_process():
     train_data = FashionMNIST(root='./data',
                               train=True,
                               transform=transforms.Compose([transforms.Resize(size=28), transforms.ToTensor()]),
@@ -20,14 +20,14 @@ def  train_val_data_process():
     train_data, val_data = Data.random_split(train_data,[round(0.8*len(train_data)), round(0.2*len(train_data))])
 
     train_dataloader = Data.DataLoader(dataset=train_data,
-                                       batch_size=32,
+                                       batch_size=64,
                                        shuffle=True,
-                                       num_workers=2)
+                                       num_workers=8)
 
     val_dataloader = Data.DataLoader(dataset=val_data,
-                                     batch_size=32,
+                                     batch_size=64,
                                      shuffle=True,
-                                     num_workers=2)
+                                     num_workers=8)
 
     return train_dataloader, val_dataloader
 
@@ -64,7 +64,6 @@ def train_model_process(model, train_dataloader, val_dataloader, num_epochs):
     for epoch in range(num_epochs):
         print("Epoch {}/{}".format(epoch, num_epochs-1))
         print("-"*10)
-
 
         # 初始化参数
         # 训练集loss值和准确度
@@ -135,10 +134,10 @@ def train_model_process(model, train_dataloader, val_dataloader, num_epochs):
 
     train_process = pd.DataFrame({
         "epoch": range(num_epochs),
-        "train_loss": train_loss_all,
-        "train_acc": train_acc_all,
-        "val_loss": val_loss_all,
-        "val_acc": val_acc_all
+        "train_loss_all": train_loss_all,
+        "val_loss_all": val_loss_all,
+        "train_acc_all": train_acc_all,
+        "val_acc_all": val_acc_all
     })
     return train_process
 
