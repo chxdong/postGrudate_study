@@ -4,7 +4,7 @@
 from transformers import BertTokenizer
 
 #加载字典和分词器
-token = BertTokenizer.from_pretrained(r"D:\PycharmProjects\demo_02\model\bert-base-chinese\models--bert-base-chinese\snapshots\c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
+token = BertTokenizer.from_pretrained(r"D:\study\code\postGrudate_study\LLM_learning\demo02\model\bert-base-chinese\models--bert-base-chinese\snapshots\c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
 # print(token)
 
 #准备要编码的文本数据

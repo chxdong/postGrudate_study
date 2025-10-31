@@ -20,14 +20,15 @@ def train_val_data_process():
     train_data, val_data = Data.random_split(train_data,[round(0.8*len(train_data)), round(0.2*len(train_data))])
 
     train_dataloader = Data.DataLoader(dataset=train_data,
-                                       batch_size=64,
+                                       batch_size=256,
                                        shuffle=True,
-                                       num_workers=8)
+                                       num_workers=32,
+                                       pin_memory = True)
 
     val_dataloader = Data.DataLoader(dataset=val_data,
-                                     batch_size=64,
+                                     batch_size=256,
                                      shuffle=True,
-                                     num_workers=8)
+                                     num_workers=32)
 
     return train_dataloader, val_dataloader
 

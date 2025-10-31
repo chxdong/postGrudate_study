@@ -7,7 +7,7 @@ from datasets import load_dataset,load_from_disk
 # dataset.to_csv(path_or_buf=r"D:\PycharmProjects\demo_02\data\ChnSentiCorp.csv")
 
 #加载缓存数据
-datasets = load_from_disk(r"D:\PycharmProjects\demo_02\data\ChnSentiCorp")
+datasets = load_from_disk(r"D:\study\code\postGrudate_study\LLM_learning\demo02\data\ChnSentiCorp")
 print(datasets)
 
 train_data = datasets["test"]
